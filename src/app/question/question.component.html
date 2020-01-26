@@ -1,0 +1,23 @@
+<form [formGroup]="questionForm" (ngSubmit)="onSubmit()">
+    <input type="text" [formControl]="text" placeholder="question...">
+    <div *ngIf="text.invalid && text.dirty" class="alert alert-danger">
+        L'identifiant est obligatoire
+        </div>
+    <select [formControl]="type">
+        <option value="checkbox">checkbox</option>
+        <option value="radio">radio</option>
+    </select>
+    <br>
+<div *ngFor="let a of lesreponses.controls;let i=index">
+    <input type="{{type.value}}">
+    <input type="text" [formControl]="lesreponses.controls[i]" placeholder="réponse..."/>
+    <button type="button" (click)="removeanswer(i)">supprimer reponse</button>   
+</div>
+<button type="button" (click)="addanswer()">ajouter reponse</button>
+
+
+<br>  
+<br>
+<button type="submit">submit</button>
+
+</form>
