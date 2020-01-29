@@ -55,12 +55,19 @@ addAnswer(groupQuestion:FormArray){
   const arrayAnswer=groupQuestion.get('answer') as FormArray;
 arrayAnswer.push(this.creatAnswer());
 }
-
+removeSection(i:number){
+  this.section.removeAt(i);
+}
+removeQuestion(groupSection:FormArray,j:number){
+  const arrayQuestion=groupSection.get('question') as FormArray
+  arrayQuestion.removeAt(j);
+}
+removeAnswer(groupQuestion:FormArray,k:number){
+  const arrayAnswer=groupQuestion.get('answer') as FormArray
+  arrayAnswer.removeAt(k);
+}
 onSubmit(){
   console.log(this.questionnaire.value); 
 }
-// removeanswer(i){
-   
-//   this.lesreponses.removeAt(i);
-// }
+
 }
