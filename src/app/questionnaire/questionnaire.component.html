@@ -1,2 +1,29 @@
-questionnaire
-<app-section></app-section>
+<h1>questionnaire bla bla</h1>
+<form [formGroup]="questionnaire" (ngSubmit)="onSubmit()">
+    <input type="text" placeholder="questionnaire..." formControlName="questionnaireName">
+    <ng-container formArrayName="section">
+        <div [formGroupName]="i" *ngFor="let ques of questionnaire.get('section').controls;let i = index;">
+            <input placeholder="section..." formControlName="sectionName" type="text">
+            <button (click)="addSection()">add section</button>
+            <ng-container formArrayName="question">
+                <div [formGroupName]="j" *ngFor="let sec of ques.get('question').controls;let j=index;">
+                    <input placeholder="question..." formControlName="questionName" type="text">
+                    <select style="margin-left: 30px;" formControlName="type">
+                        <option value="checkbox">checkbox</option>
+                        <option value="radio">radio</option>
+                    </select>
+                    <button (click)="addQuestion(ques)">add question</button>
+                    <ng-container formArrayName="answer">
+                        <div [formGroupName]="k" *ngFor="let ans of sec.get('answer').controls;let k=index;">
+                            <input type="{{sec.controls['type'].value}}" name="{{sec.controls['questionName'].value}}">
+                            <input placeholder="réponse..." formControlName ="answerName" type="text">
+                            <button (click)="addAnswer(sec)">add answer</button>
+                        </div>
+                    </ng-container>    
+                </div>
+            </ng-container>
+        </div>
+    </ng-container>
+    <button type="submit">submit</button>
+</form>
+{{questionnaire.value | json}}
