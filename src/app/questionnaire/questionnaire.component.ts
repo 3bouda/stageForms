@@ -7,8 +7,6 @@ import { FormBuilder, FormGroup, FormArray } from '@angular/forms'
 })
 export class QuestionnaireComponent implements OnInit {
 questionnaire:FormGroup;
-question:FormArray;
-answer:FormArray;
   constructor(private fb:FormBuilder) { }
 
   ngOnInit() {
