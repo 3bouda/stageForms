@@ -1,11 +1,12 @@
 <h1>questionnaire bla bla</h1>
-<form [formGroup]="questionnaire" (ngSubmit)="onSubmit()">
+<form [formGroup]="questionnaire" (ngSubmit)="onSubmit(questionnaire.value)">
     <input type="text" placeholder="questionnaire..." formControlName="questionnaireName">
+
     <ng-container formArrayName="section">
         <div [formGroupName]="i" *ngFor="let ques of questionnaire.get('section').controls;let i = index;">
             <input placeholder="section..." formControlName="sectionName" type="text">
-            <button (click)="addSection()">add section</button>
-            <button (click)="removeSection(i)">delete section</button>
+            <button type="button" (click)="addSection()">add section</button>
+            <button type="button" (click)="removeSection(i)">delete section</button>
             <ng-container formArrayName="question">
                 <div [formGroupName]="j" *ngFor="let sec of ques.get('question').controls;let j=index;">
                     <input placeholder="question..." formControlName="questionName" type="text">
@@ -13,20 +14,25 @@
                         <option value="checkbox">checkbox</option>
                         <option value="radio">radio</option>
                     </select>
-                    <button (click)="addQuestion(ques)">add question</button>
-                    <button (click)="removeQuestion(ques,j)">remove question</button>
+                    <button type="button" (click)="addQuestion(ques)">add question</button>
+                    <button type="button" (click)="removeQuestion(ques,j)">remove question</button>
                     <ng-container formArrayName="answer">
                         <div [formGroupName]="k" *ngFor="let ans of sec.get('answer').controls;let k=index;">
-                            <input type="{{sec.controls['type'].value}}" name="{{sec.controls['questionName'].value}}">
+                            <input type="{{sec.controls['type'].value}}" name="t">
                             <input placeholder="réponse..." formControlName ="answerName" type="text">
-                            <button (click)="addAnswer(sec)">add answer</button>
-                            <button (click)="removeAnswer(sec,k)">remove answer</button>
+                            <button type="button" (click)="addAnswer(sec)">add answer</button>
+                            <button type="button" (click)="removeAnswer(sec,k)">remove answer</button>
                         </div>
                     </ng-container>    
                 </div>
             </ng-container>
         </div>
     </ng-container>
-    <button type="submit">submit</button>
+    <button type="submit" [routerLink]="['/questionnaireliste']" > submit</button>
 </form>
 {{questionnaire.value | json}}
+<!-- <button (click)="supprimer(questionnaire)"> Supprimer </button> -->
+<!-- <button (click)="deleterquestionnaire()"> delete from server</button> -->
+
+
+

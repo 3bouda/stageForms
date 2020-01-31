@@ -1,0 +1,17 @@
+
+    <h2> {{ques.questionnaireName}}</h2>
+        
+            <ul *ngFor="let r of ques.section">
+                <li>{{r.sectionName}}</li>
+                <li>
+                    <ul *ngFor="let d of r.question">
+                        <li>{{d.questionName}}</li>
+                        <li>
+                            <ul *ngFor="let j of d.answer">
+                                <li>{{j.answerName}}</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+    

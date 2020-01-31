@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormArray } from '@angular/forms'
+import { QuestionnaireService } from '../questionnaire.service';
 @Component({
   selector: 'app-questionnaire',
   templateUrl: './questionnaire.component.html',
@@ -7,16 +8,41 @@ import { FormBuilder, FormGroup, FormArray } from '@angular/forms'
 })
 export class QuestionnaireComponent implements OnInit {
 questionnaire:FormGroup;
-  constructor(private fb:FormBuilder) { }
+que:object;
+  constructor(private fb:FormBuilder, private ques:QuestionnaireService) { }
+
+
+  // deletequestionnaire(){
+   
+  //   this.ques.getquestionnaire().subscribe(Response=>{
+  //     this.que=Response;
+  //   });
+  // }
+
 
   ngOnInit() {
     this.questionnaire=this.fb.group({ 
       questionnaireName: [''],      
       section : this.fb.array([this.creatSection()])
     })
+    this.que=this.questionnaire; 
+    
   }
 
-
+  onSubmit(u){
+    console.log(); 
+    this.ques.ajouter(u).subscribe(Response=>{
+      this.afficherQuestionnaire();
+      
+    })
+  
+  }
+  afficherQuestionnaire(){
+   
+    this.ques.getQuestionnaire().subscribe(Response=>{
+      this.que=Response;
+    });
+  }
 creatSection():FormGroup{
 return this.fb.group({
  sectionName:[''],
@@ -66,8 +92,6 @@ removeAnswer(groupQuestion:FormArray,k:number){
   const arrayAnswer=groupQuestion.get('answer') as FormArray
   arrayAnswer.removeAt(k);
 }
-onSubmit(){
-  console.log(this.questionnaire.value); 
-}
+
 
 }

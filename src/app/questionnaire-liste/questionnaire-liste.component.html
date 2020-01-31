@@ -1,0 +1,5 @@
+<ul *ngFor="let s of ques">
+    <li><a [routerLink]="['/questionnaireliste',s.id]" > {{s.questionnaireName}} </a> </li>
+    
+</ul>
+<a [routerLink]="['/ajoutquestionnaire']" > ajouter une questionnaire </a>
