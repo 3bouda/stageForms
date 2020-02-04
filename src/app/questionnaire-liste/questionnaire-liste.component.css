@@ -1,0 +1,45 @@
+.container-fluid{
+    margin:100px;
+}
+.del{
+    padding-left: 95%;
+    z-index: 10;
+    position: absolute;
+    display: none;
+}
+.delbutton{
+    color:rgb(129, 11, 11);
+    border: none;
+    background-color: #fff;
+}
+.ques:hover .del{display:block;}
+img{
+    height:190px;
+    width:223.83px;
+    
+}
+.listt{
+    text-align:center;
+    font-size: large;
+    height: 40px;
+    background-color:rgb(202, 204, 86);
+}
+.ques{
+    margin-right:25px;
+    margin-left: 25px;
+    padding:0px !important;
+}
+.quess{
+    margin-right: 25px;
+    margin-left: 25px;
+    padding:0px !important;
+}
+.ajout{
+    text-align: center;
+    font-size:100px;
+    height:230px;
+    width:226px;
+}
+.fa-plus-circle{
+    color:gray;
+}

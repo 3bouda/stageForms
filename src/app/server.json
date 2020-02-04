@@ -1,24 +1,3 @@
 {
-  "questionnaire": [
-    {
-      "id": 0,
-      "questionnaireName": "inscription",
-      "section": [
-        {
-          "sectionName": "math",
-          "question": [
-            {
-              "questionName": "ta moyenne ?",
-              "type": "checkbox",
-              "answer": [
-                {
-                  "answerName": "14"
-                }
-              ]
-            }
-          ]
-        }
-      ]
-    }
-  ]
+  "questionnaire": []
 }

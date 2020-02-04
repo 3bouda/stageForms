@@ -1,5 +1,24 @@
-<ul *ngFor="let s of ques">
-    <li><a [routerLink]="['/questionnaireliste',s.id]" > {{s.questionnaireName}} </a> </li>
-    
-</ul>
-<a [routerLink]="['/ajoutquestionnaire']" > ajouter une questionnaire </a>
+<div class="container-fluid">
+    <div class="row" >
+        <div class="col-md-2 text-center shadow p-4 mb-4 bg-white quess">
+            <div class="ajout">
+            <a [routerLink]="['/ajoutquestionnaire']" >
+                <i style="margin-top:60px;" class="fa fa-plus-circle"></i>
+            </a>
+            </div>
+        </div>
+        <div class="col-md-2 text-center shadow p-4 mb-4 bg-white ques" *ngFor="let s of ques">
+            <div class="del">
+                <button class="delbutton" type="button" (click)="deleteQuestionnaire(s)">
+                    <i class="fa fa-times-circle"></i>
+                </button>
+            </div>
+            <div>
+                <img src="../assets/weldkhaldoun.png">
+                <div class="listt">
+                    <a style="color:white;" [routerLink]="['/questionnaireliste',s.id]" > {{s.questionnaireName}} </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -18,4 +18,11 @@ afficherQuestionnaire(){
     this.ques=Response
   })
 }
+deleteQuestionnaire(q){
+  if(confirm('Vous étes sur de supprimer ce questionnaire ?')== true){
+  this.questionnaire.suppQuestionnaire(q).subscribe(
+    Response=>{this.afficherQuestionnaire();
+    });
+  }
+}
 }

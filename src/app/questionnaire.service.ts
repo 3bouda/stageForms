@@ -12,10 +12,13 @@ export class QuestionnaireService {
   getQuestionnaire(){
     return this._Http.get("http://localhost:3000/questionnaire");
   }
-  suppetud(questionnaire){
+  suppQuestionnaire(questionnaire){
     return this._Http.delete("http://localhost:3000/questionnaire/"+ questionnaire.id);
   }
   getQuestionnaireParId(id){
     return this._Http.get("http://localhost:3000/questionnaire/"+id);
+  }
+  modifierQuestionnaire(questionnaire){
+    return this._Http.put("http://localhost:3000/questionnaire/"+ questionnaire.id ,questionnaire);
   }
 }

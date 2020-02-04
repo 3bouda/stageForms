@@ -1,6 +1,8 @@
 
-    <h2> {{ques.questionnaireName}}</h2>
-        
+   <div *ngIf="ques">
+   <h2> {{ques.questionnaireName}}</h2>
+    
+    <a [routerLink]="['/editquestionnaire',ques.id]" > editer </a>
             <ul *ngFor="let r of ques.section">
                 <li>{{r.sectionName}}</li>
                 <li>
@@ -14,4 +16,4 @@
                     </ul>
                 </li>
             </ul>
-    
+</div>

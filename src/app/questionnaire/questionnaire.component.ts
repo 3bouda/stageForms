@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, FormArray } from '@angular/forms'
+import { FormBuilder, FormGroup, FormArray, Validators } from '@angular/forms'
 import { QuestionnaireService } from '../questionnaire.service';
 @Component({
   selector: 'app-questionnaire',
@@ -22,7 +22,8 @@ que:object;
 
   ngOnInit() {
     this.questionnaire=this.fb.group({ 
-      questionnaireName: [''],      
+      id:[''],
+      questionnaireName: ['', Validators.required ],      
       section : this.fb.array([this.creatSection()])
     })
     this.que=this.questionnaire; 
@@ -45,7 +46,7 @@ que:object;
   }
 creatSection():FormGroup{
 return this.fb.group({
- sectionName:[''],
+ sectionName:['', Validators.required],
  question:this.fb.array([this.creatQuestion()])
 }) 
 }
@@ -59,7 +60,7 @@ addSection(){
 
 creatQuestion():FormGroup{
   return this.fb.group({
-    questionName:[''],
+    questionName:['', Validators.required],
     type:['checkbox'],
     answer:this.fb.array([this.creatAnswer()])
   })
@@ -72,8 +73,7 @@ addQuestion(groupSection:FormArray){
 
 creatAnswer():FormGroup{
   return this.fb.group({
-    id:[''],
-    answerName:['']
+    answerName:['', Validators.required]
   })
 }
 
