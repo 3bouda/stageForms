@@ -1,37 +1,47 @@
 <div *ngIf="ques">
     <div class=" questionnaire container">
-        
-            <input class="form-control" type="text" [(ngModel)]="ques.questionnaireName" >
-        <br>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label" style="color:#FFC107;">Nom du questionnaire</label>
+            <div class="col-sm-10">
+                <input class="form-control" type="text" [(ngModel)]="ques.questionnaireName" >
+            </div>
+        </div>
         <div class="container">
             <ng-container *ngFor="let r of ques.section;let i=index;" >
-                <div class="form-group row">
-                    <div class="col-sm-10">    
-                        <input class="form-control" placeholder="Section..." type="text" [(ngModel)]="r.sectionName" >
-                    </div>    
-                    <button class="dell" type="button" (click)="removeSection(i)"><i class="fa fa-times-circle del"></i></button>
-                    <button class="btn btn-outline-success" type="button" (click)="addQuestion(r)">add question</button>
-                </div>
-                <div class="container">
-                    <ng-container  *ngFor="let d of r.question; let j=index;">
-                        <div class="form-group row">
-                            <div class="col-sm-10">    
-                                <input class="form-control" placeholder="Question..." type="text" [(ngModel)]="d.questionName" >
-                            </div>
-                            <button class="dell" type="button" (click)="removeQuestion(r,j)"><i class="fa fa-times-circle del"></i></button>
-                            <button class="btn btn-outline-success" type="button" (click)="addAnswer(d)">add answer</button>
-                        </div>
-                        <div class="container">
-                            <ng-container *ngFor="let j of d.answer;let k=index;">
-                                <div class="form-group row">
-                                    <div class="col-sm-10">    
-                                        <input class="form-control" placeholder="Réponse..." type="text" [(ngModel)]="j.answerName">
-                                    </div>
-                                    <button class="dell" type="button" (click)="removeAnswer(d,k)"><i class="fa fa-times-circle del"></i></button>
+                <div class="shadow card "style="padding:20px;margin-bottom:20px;">
+                    <div class="form-group row">
+                        <label style="color:#FFC107;" class="col-sm-2 col-form-label">Nom de produit</label>
+                        <div class="col-sm-7">    
+                            <input class="form-control" placeholder="Section..." type="text" [(ngModel)]="r.sectionName" >
+                        </div>    
+                        <button class="dell" type="button" (click)="removeSection(i)"><i class="fa fa-times-circle del"></i></button>
+                        <button class="btn btn-outline-success" type="button" (click)="addQuestion(r)">add question</button>
+                    </div>
+                    <div class="container">
+                        <ng-container  *ngFor="let d of r.question; let j=index;">
+                            <div class="form-group row">
+                                <div class="col-sm-6">    
+                                    <input class="form-control" placeholder="Question..." type="text" [(ngModel)]="d.questionName" >
                                 </div>
-                            </ng-container>
-                        </div>
-                    </ng-container>
+                                <select class="custom-select custom-select-sm col-sm-2" style="margin-left: 30px;" [(ngModel)]="d.type">
+                                    <option value="checkbox">checkbox</option>
+                                    <option value="radio">radio</option>
+                                </select>
+                                <button class="dell" type="button" (click)="removeQuestion(r,j)"><i class="fa fa-times-circle del"></i></button>
+                                <button class="btn btn-outline-success" type="button" (click)="addAnswer(d)">add answer</button>
+                            </div>
+                            <div class="container">
+                                <ng-container *ngFor="let j of d.answer;let k=index;">
+                                    <div class="form-group row">
+                                        <div class="col-sm-5">    
+                                            <input class="form-control" placeholder="Réponse..." type="text" [(ngModel)]="j.answerName">
+                                        </div>
+                                        <button class="dell" type="button" (click)="removeAnswer(d,k)"><i class="fa fa-times-circle del"></i></button>
+                                    </div>
+                                </ng-container>
+                            </div>
+                        </ng-container>
+                    </div>
                 </div>
             </ng-container>
         </div>

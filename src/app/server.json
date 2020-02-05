@@ -19,6 +19,73 @@
           ]
         }
       ]
+    },
+    {
+      "id": 2,
+      "questionnaireName": "Inscription",
+      "section": [
+        {
+          "sectionName": "produit 1",
+          "question": [
+            {
+              "questionName": "question 1",
+              "type": "checkbox",
+              "answer": [
+                {
+                  "answerName": "reponse 1"
+                },
+                {
+                  "answerName": "reponse2"
+                }
+              ]
+            },
+            {
+              "questionName": "question 2",
+              "type": "checkbox",
+              "answer": [
+                {
+                  "answerName": "reponse 1"
+                },
+                {
+                  "answerName": "reponse 2"
+                },
+                {
+                  "answerName": "reponse 3"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionName": "produit 2",
+          "question": [
+            {
+              "questionName": "question 1",
+              "type": "checkbox",
+              "answer": [
+                {
+                  "answerName": "reponse 1"
+                },
+                {
+                  "answerName": "reponse 2"
+                }
+              ]
+            },
+            {
+              "questionName": "question 2",
+              "type": "checkbox",
+              "answer": [
+                {
+                  "answerName": "reponse 1"
+                },
+                {
+                  "answerName": "reponse 2"
+                }
+              ]
+            }
+          ]
+        }
+      ]
     }
   ]
 }

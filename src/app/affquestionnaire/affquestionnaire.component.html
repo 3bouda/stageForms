@@ -1,19 +1,24 @@
 
-   <div *ngIf="ques">
-   <h2> {{ques.questionnaireName}}</h2>
-    
-    <a [routerLink]="['/editquestionnaire',ques.id]" > editer </a>
-            <ul *ngFor="let r of ques.section">
-                <li>{{r.sectionName}}</li>
-                <li>
-                    <ul *ngFor="let d of r.question">
-                        <li>{{d.questionName}}</li>
-                        <li>
-                            <ul *ngFor="let j of d.answer">
-                                <li>{{j.answerName}}</li>
-                            </ul>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
+<div *ngIf="ques">
+  <div class="container">
+    <h2 style="color:#2F6F9F;">{{ques.questionnaireName}}</h2>
+    <div class="container" style="margin:20px;">
+    <div *ngFor="let r of ques.section">
+        <div class="card shadow" style="padding:20px;margin-bottom:20px;">
+            <h4 style="color:#FFC107;margin-right:20px;"><strong>{{r.sectionName}}</strong></h4>
+                <div *ngFor="let d of r.question">
+                    <div class="container" style="margin-left:30px;">
+                        <h5 style="color:#DC3545"><strong>{{d.questionName}}</strong></h5>
+                        <div class="container">
+                            <div *ngFor="let j of d.answer">
+                                <div>{{j.answerName}}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>          
+            </div>
+        </div>
+        <a [routerLink]="['/editquestionnaire',ques.id]" class="btn btn-outline-info float-right" > editer </a>
+    </div>
+    </div>
 </div>
