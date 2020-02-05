@@ -11,33 +11,25 @@ questionnaire:FormGroup;
 que:object;
   constructor(private fb:FormBuilder, private ques:QuestionnaireService) { }
 
-
-  // deletequestionnaire(){
-   
-  //   this.ques.getquestionnaire().subscribe(Response=>{
-  //     this.que=Response;
-  //   });
-  // }
-
-
   ngOnInit() {
     this.questionnaire=this.fb.group({ 
       id:[''],
-      questionnaireName: ['', Validators.required ],      
+      questionnaireName: ['',Validators.required],      
       section : this.fb.array([this.creatSection()])
     })
+
     this.que=this.questionnaire; 
     
   }
 
   onSubmit(u){
-    console.log(); 
     this.ques.ajouter(u).subscribe(Response=>{
       this.afficherQuestionnaire();
       
     })
   
   }
+  
   afficherQuestionnaire(){
    
     this.ques.getQuestionnaire().subscribe(Response=>{
@@ -46,7 +38,7 @@ que:object;
   }
 creatSection():FormGroup{
 return this.fb.group({
- sectionName:['', Validators.required],
+ sectionName:['',Validators.required],
  question:this.fb.array([this.creatQuestion()])
 }) 
 }
@@ -60,7 +52,7 @@ addSection(){
 
 creatQuestion():FormGroup{
   return this.fb.group({
-    questionName:['', Validators.required],
+    questionName:['',Validators.required],
     type:['checkbox'],
     answer:this.fb.array([this.creatAnswer()])
   })
@@ -73,7 +65,7 @@ addQuestion(groupSection:FormArray){
 
 creatAnswer():FormGroup{
   return this.fb.group({
-    answerName:['', Validators.required]
+    answerName:['',Validators.required]
   })
 }
 

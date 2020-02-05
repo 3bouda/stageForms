@@ -1,73 +1,74 @@
 <div lass="all">
-<div class="questionnaire container">
-<div [formGroup]="questionnaire" (ngSubmit)="onSubmit(questionnaire.value)">
-    <div class="form-group row">
-        <label class="col-sm-2 col-form-label" style="color:#FFC107;">Nom du questionnaire</label>
-        <div class="col-sm-10">
-            <input  class="form-control" type="text" placeholder="questionnaire..." formControlName="questionnaireName">
-            <div style="height:40px;" *ngIf="questionnaire.controls['questionnaireName'].invalid && (questionnaire.controls['questionnaireName'].dirty || questionnaire.controls['questionnaireName'].touched)" class="alert alert-danger">
-                <label>Ce champ est obligatoire</label>
-            </div>
-        </div>
-    </div>
-    <div class="container">
-        <ng-container formArrayName="section">
-            <div [formGroupName]="i" *ngFor="let ques of questionnaire.get('section').controls;let i = index;">
-                <div class="form-group row">
-                    <label style="color:#FFC107;" class="col-sm-2 col-form-label">Nom de produit</label>
-                    <div class="col-sm-7">
-                        <input class="form-control" placeholder="produit..." formControlName="sectionName" type="text">                        
+    <div class="questionnair container">
+        <form [formGroup]="questionnaire" (ngSubmit)="onSubmit(questionnaire.value)">
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label" style="color:#FFC107;">Nom du questionnaire</label>
+                <div class="col-sm-10">
+                    <input  class="form-control" type="text" placeholder="questionnaire..." formControlName="questionnaireName">
+                    <div style="height:40px;" *ngIf="questionnaire.controls['questionnaireName'].invalid && (questionnaire.controls['questionnaireName'].dirty || questionnaire.controls['questionnaireName'].touched)" class="alert alert-danger">
+                        <label>Ce champ est obligatoire</label>
                     </div>
-                    <button class="dell" type="button" (click)="removeSection(i)"><i class="fa fa-times-circle del"></i></button>
-                    <button class="btn btn-outline-success" type="button" (click)="addQuestion(ques)">add question</button>
                 </div>
-                <div style="height:40px;" *ngIf="ques.controls['sectionName'].invalid && (ques.controls['sectionName'].dirty || ques.controls['sectionName'].touched)" class="alert alert-danger ">
-                    <label>Ce champ est obligatoire</label>
-                </div>
-                <div class="container">
-                    <ng-container formArrayName="question">
-                        
-                        <div [formGroupName]="j" *ngFor="let sec of ques.get('question').controls;let j=index;">
+            </div>
+            <div class="container ">
+                <ng-container formArrayName="section">
+                    <div [formGroupName]="i" *ngFor="let ques of questionnaire.get('section').controls;let i = index;">
+                        <div class="shadow card "style="padding:20px;margin-bottom:20px;">
                             <div class="form-group row">
-                                <div class="col-sm-6">
-                                    <input class="form-control" placeholder="question..." formControlName="questionName" type="text">                          
-                    
+                                <label style="color:#FFC107;" class="col-sm-2 col-form-label">Nom de produit</label>
+                                <div class="col-sm-7">
+                                    <input class="form-control" placeholder="produit..." formControlName="sectionName" type="text">                        
                                 </div>
-                                <select class="custom-select custom-select-sm col-sm-2" style="margin-left: 30px;" formControlName="type">
-                                    <option value="checkbox">checkbox</option>
-                                    <option value="radio">radio</option>
-                                </select>
-                                <button class="dell" type="button" (click)="removeQuestion(ques,j)"><i class="fa fa-times-circle del"></i></button>
-                                <button class="btn btn-outline-success" type="button" (click)="addAnswer(sec)">add answer</button>
+                                <button type="button" class="dell" (click)="removeSection(i)"><i class="fa fa-times-circle del"></i></button>
+                                <button class="btn btn-outline-success" type="button" (click)="addQuestion(ques)">add question</button>
                             </div>
-                            <div style="height:40px;" *ngIf="sec.controls['questionName'].invalid && (sec.controls['questionName'].dirty || sec.controls['questionName'].touched)" class="alert alert-danger">
+                            <div style="height:40px;" *ngIf="ques.controls['sectionName'].invalid && (ques.controls['sectionName'].dirty || ques.controls['sectionName'].touched)" class="alert alert-danger ">
                                 <label>Ce champ est obligatoire</label>
                             </div>
-                            <div class="container">
-                                <ng-container formArrayName="answer">
-                                    <div [formGroupName]="k" *ngFor="let ans of sec.get('answer').controls;let k=index;">
+                            <div class="container ">
+                                <ng-container formArrayName="question">
+                        
+                                    <div [formGroupName]="j" *ngFor="let sec of ques.get('question').controls;let j=index;">
                                         <div class="form-group row">
-                                            <div class="col-sm-5">
-                                                <input class="form-control" placeholder="réponse..." formControlName ="answerName" type="text">
+                                            <div class="col-sm-6">
+                                                <input class="form-control" placeholder="question..." formControlName="questionName" type="text">                          
+                    
                                             </div>
-                                            <button class="dell" type="button" (click)="removeAnswer(sec,k)"><i class="fa fa-times-circle del"></i></button>
+                                            <select class="custom-select custom-select-sm col-sm-2" style="margin-left: 30px;" formControlName="type">
+                                                <option value="checkbox">checkbox</option>
+                                                <option value="radio">radio</option>
+                                            </select>
+                                            <button class="dell" type="button" (click)="removeQuestion(ques,j)"><i class="fa fa-times-circle del"></i></button>
+                                            <button class="btn btn-outline-success" type="button" (click)="addAnswer(sec)">add answer</button>
                                         </div>
-                                        <div style="height:40px;" *ngIf="ans.controls['answerName'].invalid && (ans.controls['answerName'].dirty || ans.controls['answerName'].touched)" class="alert alert-danger">
-                                            <label>Ce champ est obligatoire</label>
-                                        </div>
+                                    <div style="height:40px;" *ngIf="sec.controls['questionName'].invalid && (sec.controls['questionName'].dirty || sec.controls['questionName'].touched)" class="alert alert-danger">
+                                        <label>Ce champ est obligatoire</label>
                                     </div>
-                                </ng-container>
-                            </div>    
+                                    <div class="container">
+                                        <ng-container formArrayName="answer">
+                                            <div [formGroupName]="k" *ngFor="let ans of sec.get('answer').controls;let k=index;">
+                                                <div class="form-group row">
+                                                    <div class="col-sm-5">
+                                                        <input class="form-control" placeholder="réponse..." formControlName ="answerName" type="text">
+                                                    </div>
+                                                    <button class="dell" type="button" (click)="removeAnswer(sec,k)"><i class="fa fa-times-circle del"></i></button>
+                                                </div>
+                                                <div style="height:40px;" *ngIf="ans.controls['answerName'].invalid && (ans.controls['answerName'].dirty || ans.controls['answerName'].touched)" class="alert alert-danger">
+                                                    <label>Ce champ est obligatoire</label>
+                                                </div>
+                                            </div>
+                                        </ng-container>
+                                    </div>    
+                                </div>
+                            </ng-container>
                         </div>
-                    </ng-container>
+                    </div>
                 </div>
-            </div>
-        </ng-container> 
-        <button class="btn btn-outline-success" type="button" (click)="addSection()">Ajouter produit</button>
+            </ng-container> 
+            <button class="btn btn-outline-success" type="button" (click)="addSection()">Ajouter produit</button>
+        </div>
+        <br><br>
+        <button class="btn btn-outline-info" type="submit" [disabled]="!questionnaire.valid" > submit</button>
+        </form>
     </div>
-    <br>
-    <br>
-    <button class="btn btn-outline-info" type="submit" [disabled]="questionnaire.invalid"> submit</button>
-</div>
-</div>
 </div>
