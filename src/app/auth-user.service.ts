@@ -7,7 +7,8 @@ import { User } from './user';
   providedIn: 'root'
 })
 export class AuthUserService implements OnInit{
-user:Object;
+user:Object
+;
 aa=true;
   constructor(private router:Router, private questionnaire:QuestionnaireService) { }
   logIn = true;
@@ -27,7 +28,7 @@ aa=true;
   login(t){
     
   
-    for(let a of this.user){
+    for(let a in this.user){  //lehne el ghalta
       console.log(a);
       if (t.userName == a['userName'] && t.userPassword == a['userPassword']){
         this.aa=false;
