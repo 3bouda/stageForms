@@ -1,0 +1,32 @@
+<div *ngIf="user">
+    <div *ngIf="ques">
+
+    <div class="container">
+        <h2 style="color:#2F6F9F;">{{ques.questionnaireName}}</h2>
+        <div class="container" style="margin:20px;">
+            <div *ngFor="let r of ques.section">
+                <div class="card shadow" style="padding:20px;margin-bottom:20px;">
+                <h4 style="color:#FFC107;margin-right:20px;"><strong>{{r.sectionName}}</strong></h4>
+                    <div *ngFor="let d of r.question">
+                        <div class="container" style="margin-left:30px;">
+                            <h5 style="color:#DC3545"><strong>{{d.questionName}}</strong></h5>
+                            <div class="container">
+                                <div *ngFor="let j of d.answer">
+                                    <div class="form-group row">
+                                            <input type="{{d.type}}" [value]="j.answerName" (change)="checkChange($event,ques.id,r.sectionName,d.questionName)" style="margin-right: 10px;">
+                                        <div>{{j.answerName}}</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>          
+                </div>
+            </div>
+        </div>
+        <button class="btn btn-outline-info" type="button" (click)="editUser(user)">submit</button>
+    </div>
+    </div>
+</div>
+{{user|json}}
+
+

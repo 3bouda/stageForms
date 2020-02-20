@@ -5,14 +5,13 @@
                 <i style="margin:auto;" class="fa fa-plus"></i>
             </a>
         </div>
-        <div class="col-md-2 text-center shadow p-4 mb-4 bg-white ques" *ngFor="let s of ques">
-
+        <div class="col-md-2 text-center shadow  bg-white ques" *ngFor="let s of ques">
             <div class="card" style="width: 15rem;">
-                <a [routerLink]="['/questionnaireliste',s.id]" >
+                <a [routerLink]="['/questionnaireliste',s.id]">
                     <img src="../assets/weldkhaldoun.png" class="card-img-top" alt="I put it randomly">
                 </a>
-                <div >
-                     {{s.questionnaireName}} 
+                <div class="card-title">
+                     <strong>{{s.questionnaireName}}</strong> 
                 <div>
                         <button style="margin-top: 5px;" class="btn btn-outline-danger btn-block" type="button" (click)="deleteQuestionnaire(s)">
                             Supprimer
@@ -25,3 +24,4 @@
     </div>
     
 </div>
+<!-- <app-user-questionnare-list></app-user-questionnare-list> -->

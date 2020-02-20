@@ -1,26 +1,6 @@
 {
   "questionnaire": [
     {
-      "id": 0,
-      "questionnaireName": "gggg",
-      "section": [
-        {
-          "sectionName": "ddddd",
-          "question": [
-            {
-              "questionName": ";;;;;;",
-              "type": "",
-              "answer": [
-                {
-                  "answerName": ""
-                }
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
       "id": 2,
       "questionnaireName": "Inscription",
       "section": [
@@ -60,7 +40,7 @@
           "sectionName": "produit 2",
           "question": [
             {
-              "questionName": "question 1",
+              "questionName": "question 3",
               "type": "checkbox",
               "answer": [
                 {
@@ -80,6 +60,123 @@
                 },
                 {
                   "answerName": "reponse 2"
+                },
+                {
+                  "answerName": "reponse 3"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "questionnaireName": "ssdd",
+      "section": [
+        {
+          "sectionName": "sdsd",
+          "question": [
+            {
+              "questionName": "dssd",
+              "type": "checkbox",
+              "answer": [
+                {
+                  "answerName": "sdds"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "user": [
+    {
+      "id": 0,
+      "userName": "iheb",
+      "useremail": "",
+      "userPassword": "kkk",
+      "questionnaireListe": [
+        {
+          "questionnaire": [
+            {
+              "id": 2,
+              "section": [
+                {
+                  "sectionName": "produit 1",
+                  "question": [
+                    {
+                      "questionName": "question 1",
+                      "answer": [
+                        {
+                          "answerName": "reponse 1"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "sectionName": "produit 2",
+                  "question": [
+                    {
+                      "questionName": "question 2",
+                      "answer": [
+                        {
+                          "answerName": "reponse 1"
+                        },
+                        {
+                          "answerName": "reponse 2"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "userName": "ihebb",
+      "useremail": "",
+      "userPassword": "kkk",
+      "questionnaireListe": [
+        {
+          "questionnaire": [
+            {
+              "id": 2,
+              "section": [
+                {
+                  "sectionName": "produit 1",
+                  "question": [
+                    {
+                      "questionName": "question 1",
+                      "answer": [
+                        {
+                          "answerName": "reponse 1"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "sectionName": "produit 2",
+                  "question": [
+                    {
+                      "questionName": "question 2",
+                      "answer": [
+                        {
+                          "answerName": "reponse 1"
+                        },
+                        {
+                          "answerName": "reponse 2"
+                        }
+                      ]
+                    }
+                  ]
                 }
               ]
             }

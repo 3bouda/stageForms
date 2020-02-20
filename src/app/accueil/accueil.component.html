@@ -1,0 +1,15 @@
+<ul class="nav nav-tabs">
+    <li class="nav-item">
+        <a class="nav-link" routerLinkActive="active" [routerLink]="['/admin']">Admin</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" routerLinkActive="active" [routerLink]=" ['/login-user']">Log in</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" routerLinkActive="active" [routerLink]="['/signup-user']">Sign up</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link"  routerLinkActive="active" (click)="logOut()"> <h6>Log out</h6></a>
+    </li>
+</ul>
+<router-outlet></router-outlet>

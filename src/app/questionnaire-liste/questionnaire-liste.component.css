@@ -4,16 +4,19 @@
 
 
 .ques{
-    margin-right:25px;
+    margin-right:50px;
     margin-left: 25px;
     padding:0px !important;
+    margin-top: 10px;
+
 }
 .quess{
-    margin-right: 25px;
+    margin-top: 10px;
+    
     margin-left: 25px;
     padding:0px !important;
     font-size:150px;
-    width:240px;
+    width:238px;
     height: 300px;
     text-align: center;
 }

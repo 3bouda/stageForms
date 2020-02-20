@@ -22,7 +22,5 @@ afficherQuestionnaire(){
     this.ques=Response
   })
 }
-// removeSection(i:number){
-//   this.ques['section'].splice(i,1);
-// }
+
 }

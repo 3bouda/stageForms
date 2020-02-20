@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormArray, Validators } from '@angular/forms'
 import { QuestionnaireService } from '../questionnaire.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-questionnaire',
   templateUrl: './questionnaire.component.html',
@@ -9,7 +10,7 @@ import { QuestionnaireService } from '../questionnaire.service';
 export class QuestionnaireComponent implements OnInit {
 questionnaire:FormGroup;
 que:object;
-  constructor(private fb:FormBuilder, private ques:QuestionnaireService) { }
+  constructor(private fb:FormBuilder, private ques:QuestionnaireService, public router:Router) { }
 
   ngOnInit() {
     this.questionnaire=this.fb.group({ 
@@ -25,9 +26,8 @@ que:object;
   onSubmit(u){
     this.ques.ajouter(u).subscribe(Response=>{
       this.afficherQuestionnaire();
-      
-    })
-  
+    });
+    this.router.navigate(['questionnaireliste']);
   }
   
   afficherQuestionnaire(){

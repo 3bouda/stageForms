@@ -1,4 +1,4 @@
-<div lass="all">
+<body>
     <div class="questionnair container">
         <form [formGroup]="questionnaire" (ngSubmit)="onSubmit(questionnaire.value)">
             <div class="form-group row">
@@ -71,4 +71,4 @@
         <button class="btn btn-outline-info" type="submit" [disabled]="!questionnaire.valid" > submit</button>
         </form>
     </div>
-</div>
+</body>

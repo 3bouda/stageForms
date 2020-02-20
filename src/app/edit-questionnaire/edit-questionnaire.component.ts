@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { QuestionnaireService } from '../questionnaire.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Section } from '../section';
 import { EditService } from './edit.service';
 import { Answer } from '../answer';
@@ -15,7 +15,7 @@ export class EditQuestionnaireComponent implements OnInit {
 ques:object;
 identifiant:number;
 
-  constructor(private edit:EditService, private questionnaire:QuestionnaireService,private activatedRoute:ActivatedRoute) { }
+  constructor(public router:Router,private edit:EditService, private questionnaire:QuestionnaireService,private activatedRoute:ActivatedRoute) { }
 
   ngOnInit() {
     this.identifiant = this.activatedRoute.snapshot.params['id'];
@@ -28,10 +28,10 @@ identifiant:number;
     })
   }
   editquestionnaire(t){
-    console.log(t);
     this.questionnaire.modifierQuestionnaire(t).subscribe(Response=>{
       this.afficherQuestionnaire();
-  })
+  });
+  this.router.navigate(['questionnaireliste']);
 }
 removeSection(i){
   this.ques['section'].splice(i,1);   
